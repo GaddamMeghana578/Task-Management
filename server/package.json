@@ -1,0 +1,27 @@
+{
+    "name": "tasks",
+    "version": "0.0.1",
+    "main": "server.js",
+    "license": "UNLICENSED",
+    "dependencies": {
+      "@babel/cli": "^7.4.3",
+      "@babel/core": "^7.4.3",
+      "@babel/node": "^7.2.2",
+      "@babel/preset-env": "^7.4.3",
+      "body-parser": "^1.18.3",
+      "cors": "^2.8.5",
+      "express": "^4.16.4",
+      "method-override": "^3.0.0",
+      "mongoose": "^5.4.16",
+      "morgan": "^1.9.1",
+      "nodemon": "^1.10.0",
+      "swagger-ui-express": "^4.0.5",
+      "uuid": "~3.3.2"
+    },
+    "engines": {
+      "yarn": ">= 1.0.0"
+    },
+    "scripts": {
+      "start": "nodemon --exec babel-node server.js"
+    }
+  }
