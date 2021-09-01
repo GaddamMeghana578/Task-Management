@@ -9,6 +9,7 @@ export default class List extends Component {
     super(props);
     this.state = {
       task: "",
+      summary: "",
       status: "",
       priority: "",
       duedate: "",
@@ -16,6 +17,7 @@ export default class List extends Component {
       notes: "",
       uuid: "",
       taskChange: false,
+      summaryChange: false,
       statusChange: false,
       priorityChange: false,
       duedateChange: false,
@@ -35,6 +37,8 @@ export default class List extends Component {
     const { name, value } = e.target;
     if (name === "task") {
       this.setState({ [name]: value, taskChange: true });
+    } else if (name === "summary") {
+      this.setState({ [name]: value, summaryChange: true });
     } else if (name === "status") {
       this.setState({ [name]: value, statusChange: true });
     } else if (name === "priority") {
@@ -48,7 +52,6 @@ export default class List extends Component {
 
   onEdit = (e, uuid) => {
     e.preventDefault();
-    console.log("check:", uuid);
     this.props.handleEdit(uuid);
   };
 
@@ -61,6 +64,9 @@ export default class List extends Component {
     var task = this.state.taskChange
       ? this.state.task
       : this.props.taskData.task;
+    var summary = this.state.summaryChange
+      ? this.state.summary
+      : this.props.taskData.summary;
     var status = this.state.statusChange
       ? this.state.status
       : this.props.taskData.status;
@@ -79,6 +85,7 @@ export default class List extends Component {
     this.props.handleAdd(
       uuid,
       task,
+      summary,
       status,
       priority,
       duedate,
@@ -87,6 +94,7 @@ export default class List extends Component {
     );
     this.setState({
       task: "",
+      summary: "",
       status: "",
       priority: "",
       duedate: "",
@@ -94,6 +102,7 @@ export default class List extends Component {
       notes: "",
       uuid: "",
       taskChange: false,
+      summaryChange: false,
       statusChange: false,
       priorityChange: false,
       duedateChange: false,
@@ -106,12 +115,14 @@ export default class List extends Component {
     var tasksinList = this.props.tasks;
     const {
       task,
+      summary,
       status,
       priority,
       duedate,
       assignee,
       notes,
       taskChange,
+      summaryChange,
       statusChange,
       priorityChange,
       duedateChange,
@@ -136,6 +147,9 @@ export default class List extends Component {
                     <th>#</th>
                     <th>
                       <b>Task</b>
+                    </th>
+                    <th>
+                      <b>Summary</b>
                     </th>
                     <th>
                       <b>Status</b>
@@ -169,32 +183,56 @@ export default class List extends Component {
                             {!this.props.editable ? (
                               tasks.task
                             ) : this.props.uuid === tasks.uuid ? (
-                              <input
+                              <select
                                 className={
                                   taskChange ? "Change" : "form-control"
                                 }
-                                type="text"
                                 name="task"
+                                id="task"
                                 value={taskChange ? task : tasks.task}
                                 onChange={(e) => this.onInputChange(e)}
-                              />
+                              >
+                                <option value="Issue">Issue</option>
+                                <option value="Bug">Bug</option>
+                              </select>
                             ) : (
                               tasks.task
                             )}
                           </td>
                           <td>
                             {!this.props.editable ? (
-                              tasks.status
+                              tasks.summary
                             ) : this.props.uuid === tasks.uuid ? (
                               <input
                                 className={
-                                  statusChange ? "Change" : "form-control"
+                                  summaryChange ? "Change" : "form-control"
                                 }
                                 type="text"
-                                name="status"
-                                value={statusChange ? status : tasks.status}
+                                name="summary"
+                                value={summaryChange ? summary : tasks.summary}
                                 onChange={(e) => this.onInputChange(e)}
                               />
+                            ) : (
+                              tasks.summary
+                            )}
+                          </td>
+                          <td>
+                            {!this.props.editable ? (
+                              tasks.status
+                            ) : this.props.uuid === tasks.uuid ? (
+                              <select
+                                className={
+                                  statusChange ? "Change" : "form-control"
+                                }
+                                name="status"
+                                id="status"
+                                value={statusChange ? status : tasks.status}
+                                onChange={(e) => this.onInputChange(e)}
+                              >
+                                <option value="ToDo">To Do</option>
+                                <option value="InProgress">In Progress</option>
+                                <option value="Done">Done</option>
+                              </select>
                             ) : (
                               tasks.status
                             )}
@@ -203,17 +241,21 @@ export default class List extends Component {
                             {!this.props.editable ? (
                               tasks.priority
                             ) : this.props.uuid === tasks.uuid ? (
-                              <input
+                              <select
                                 className={
                                   priorityChange ? "Change" : "form-control"
                                 }
-                                type="text"
                                 name="priority"
+                                id="priority"
                                 value={
                                   priorityChange ? priority : tasks.priority
                                 }
                                 onChange={(e) => this.onInputChange(e)}
-                              />
+                              >
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                              </select>
                             ) : (
                               tasks.priority
                             )}
@@ -241,17 +283,21 @@ export default class List extends Component {
                             {!this.props.editable ? (
                               tasks.assignee
                             ) : this.props.uuid === tasks.uuid ? (
-                              <input
+                              <select
                                 className={
                                   assigneeChange ? "Change" : "form-control"
                                 }
-                                type="text"
                                 name="assignee"
+                                id="assignee"
                                 value={
                                   assigneeChange ? assignee : tasks.assignee
                                 }
                                 onChange={(e) => this.onInputChange(e)}
-                              />
+                              >
+                                <option value="Maggi">Maggi</option>
+                                <option value="Rachel">Rachel</option>
+                                <option value="John">John</option>
+                              </select>
                             ) : (
                               tasks.assignee
                             )}

@@ -4,30 +4,34 @@ const Schema = mongoose.Schema;
 const TaskSchema = new Schema({
   task: {
     type: String,
-    required: true
+    required: true,
+  },
+  summary: {
+    type: String,
+    required: true,
   },
   status: {
     type: String,
-    required: true
+    required: true,
   },
   priority: {
     type: String,
-    required: true
+    required: true,
   },
   assignee: {
     type: String,
-    required: true
+    required: true,
   },
   duedate: {
     type: String,
-    required: true
+    required: true,
   },
   notes: {
-    type: String
+    type: String,
   },
   uuid: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 export default mongoose.model("Task", TaskSchema);
