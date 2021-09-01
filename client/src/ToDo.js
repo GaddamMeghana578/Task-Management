@@ -11,22 +11,22 @@ export default class ToDo extends Component {
       priority: "",
       duedate: "",
       assignee: "",
-      notes: ""
+      notes: "",
     };
     this.handleDateChange = this.handleDateChange.bind(this);
   }
 
-  handleInputChange = e => {
+  handleInputChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
-  handleDateChange = date => {
+  handleDateChange = (date) => {
     this.setState({ duedate: date });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     var dateString = this.state.duedate;
     this.props.handleSubmit(this.state, dateString);
@@ -36,11 +36,11 @@ export default class ToDo extends Component {
       priority: "",
       duedate: "",
       assignee: "",
-      notes: ""
+      notes: "",
     });
   };
 
-  onCancel = e => {
+  onCancel = (e) => {
     e.preventDefault();
     this.setState({
       task: "",
@@ -48,14 +48,17 @@ export default class ToDo extends Component {
       priority: "",
       duedate: "",
       assignee: "",
-      notes: ""
+      notes: "",
     });
   };
   render() {
     const { task, status, priority, duedate, assignee, notes } = this.state;
     return (
-      <div>
-        <div className="container">
+      <div className="panel panel-warning">
+        <div className="panel-heading">
+          <h3>Task Management App</h3>
+        </div>
+        <div className="panel-body">
           <div className="row">
             <div className="form-group col-md-3">
               <label htmlFor="name">Task</label>
@@ -65,7 +68,7 @@ export default class ToDo extends Component {
                 name="task"
                 value={task}
                 id="task"
-                onChange={e => this.handleInputChange(e)}
+                onChange={(e) => this.handleInputChange(e)}
               />
             </div>
           </div>
@@ -77,7 +80,7 @@ export default class ToDo extends Component {
                 className="form-control"
                 name="status"
                 value={status}
-                onChange={e => this.handleInputChange(e)}
+                onChange={(e) => this.handleInputChange(e)}
                 id="status"
               />
             </div>
@@ -90,7 +93,7 @@ export default class ToDo extends Component {
                 className="form-control"
                 name="priority"
                 value={priority}
-                onChange={e => this.handleInputChange(e)}
+                onChange={(e) => this.handleInputChange(e)}
                 id="priority"
               />
             </div>
@@ -110,7 +113,7 @@ export default class ToDo extends Component {
                 className="form-control"
                 name="assignee"
                 value={assignee}
-                onChange={e => this.handleInputChange(e)}
+                onChange={(e) => this.handleInputChange(e)}
                 id="assignee"
               />
             </div>
@@ -123,17 +126,23 @@ export default class ToDo extends Component {
                 className="form-control"
                 name="notes"
                 value={notes}
-                onChange={e => this.handleInputChange(e)}
+                onChange={(e) => this.handleInputChange(e)}
                 id="notes"
               />
             </div>
           </div>
           <div className="form-group col-md-10" style={{ marginLeft: "-1.2%" }}>
-            <button className="btn btn-success" onClick={e => this.onSubmit(e)}>
+            <button
+              className="btn btn-success"
+              onClick={(e) => this.onSubmit(e)}
+            >
               Submit
             </button>
             &nbsp; &nbsp;
-            <button className="btn btn-warning" onClick={e => this.onCancel(e)}>
+            <button
+              className="btn btn-warning"
+              onClick={(e) => this.onCancel(e)}
+            >
               Cancel
             </button>
           </div>

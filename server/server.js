@@ -19,7 +19,7 @@ mongoose.Promise = global.Promise;
 mongoose
   .connect("mongodb://localhost:27017/dev", { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
 require("./routes/API")(server); // Configure our routes
 

@@ -119,7 +119,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>&nbsp;&nbsp;Project Task Assignment Management Sheet</h1>
         <ToDo handleSubmit={this.handleSubmit} />
         <List
           tasks={this.state.taskDetails}

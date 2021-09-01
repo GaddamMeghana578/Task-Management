@@ -20,7 +20,7 @@ export default class List extends Component {
       priorityChange: false,
       duedateChange: false,
       assigneeChange: false,
-      notesChange: false
+      notesChange: false,
     };
     this.onDateChange = this.onDateChange.bind(this);
   }
@@ -30,7 +30,7 @@ export default class List extends Component {
     this.props.handleDelete(uuid);
   };
 
-  onInputChange = e => {
+  onInputChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     if (name === "task") {
@@ -52,7 +52,7 @@ export default class List extends Component {
     this.props.handleEdit(uuid);
   };
 
-  onDateChange = date => {
+  onDateChange = (date) => {
     this.setState({ duedate: date, duedateChange: true });
   };
 
@@ -98,7 +98,7 @@ export default class List extends Component {
       priorityChange: false,
       duedateChange: false,
       assigneeChange: false,
-      notesChange: false
+      notesChange: false,
     });
   };
 
@@ -116,14 +116,14 @@ export default class List extends Component {
       priorityChange,
       duedateChange,
       assigneeChange,
-      notesChange
+      notesChange,
     } = this.state;
     return (
       <div>
         <ul className="breadcrumb">
           {tasksinList ? (
             <div>
-              <h3 className="text-center text-danger">Users</h3>
+              <h3 className="text-center text-danger">Tasks</h3>
               <div className="wrapper">
                 <span>
                   Showing {tasksinList ? tasksinList.length : 0} Users
@@ -176,7 +176,7 @@ export default class List extends Component {
                                 type="text"
                                 name="task"
                                 value={taskChange ? task : tasks.task}
-                                onChange={e => this.onInputChange(e)}
+                                onChange={(e) => this.onInputChange(e)}
                               />
                             ) : (
                               tasks.task
@@ -193,7 +193,7 @@ export default class List extends Component {
                                 type="text"
                                 name="status"
                                 value={statusChange ? status : tasks.status}
-                                onChange={e => this.onInputChange(e)}
+                                onChange={(e) => this.onInputChange(e)}
                               />
                             ) : (
                               tasks.status
@@ -212,7 +212,7 @@ export default class List extends Component {
                                 value={
                                   priorityChange ? priority : tasks.priority
                                 }
-                                onChange={e => this.onInputChange(e)}
+                                onChange={(e) => this.onInputChange(e)}
                               />
                             ) : (
                               tasks.priority
@@ -250,7 +250,7 @@ export default class List extends Component {
                                 value={
                                   assigneeChange ? assignee : tasks.assignee
                                 }
-                                onChange={e => this.onInputChange(e)}
+                                onChange={(e) => this.onInputChange(e)}
                               />
                             ) : (
                               tasks.assignee
@@ -267,7 +267,7 @@ export default class List extends Component {
                                 type="text"
                                 name="notes"
                                 value={notesChange ? notes : tasks.notes}
-                                onChange={e => this.onInputChange(e)}
+                                onChange={(e) => this.onInputChange(e)}
                               />
                             ) : (
                               tasks.notes
@@ -279,7 +279,7 @@ export default class List extends Component {
                               <button
                                 className="btn btn-success"
                                 type="add"
-                                onClick={e => this.onAdd(e, tasks.uuid)}
+                                onClick={(e) => this.onAdd(e, tasks.uuid)}
                               >
                                 Add
                               </button>
@@ -287,7 +287,7 @@ export default class List extends Component {
                               <button
                                 className="btn btn-primary"
                                 type="edit"
-                                onClick={e => this.onEdit(e, tasks.uuid)}
+                                onClick={(e) => this.onEdit(e, tasks.uuid)}
                               >
                                 Edit
                               </button>
@@ -296,7 +296,7 @@ export default class List extends Component {
                             <button
                               className="btn btn-warning"
                               type="submit"
-                              onClick={e => this.onDelete(e, tasks.uuid)}
+                              onClick={(e) => this.onDelete(e, tasks.uuid)}
                             >
                               Delete
                             </button>
