@@ -1,68 +1,123 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TASK MANAGEMENT APP
 
-## Available Scripts
+_MERN Stack Project_
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+You are going to need **Node.js**, **MongoDB** and **npm** or **yarn** installed on your machine.
+**Note**: You can either install **MongoDB** locally on your machine or use **MongoDB Atlas**
+Make sure you are using the latest version of node.
 
-### `npm test`
+### Installing
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+How to properly install and configure this repository to work on your machine.
 
-### `npm run build`
+Cloning the repository
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone ...
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Starting the repository on your machine
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You will need to run client & server seperately, ports are already configured, make sure you don't conflict them if you change anything.
 
-### `npm run eject`
+If you are not using **MongoDBAtlas** then do the below:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Start Mongo server in your project directory on a new terminal
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+cd Task-Management
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+Task-Management /mongod
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+On mac book you need to run
 
-## Learn More
+```
+Task-Management /sudo mongod
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Enter Server directory on a new terminal
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+cd Task-Management/server
+```
 
-### Code Splitting
+Install the packages on the server
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+Task-Management/server/npm install
+```
 
-### Analyzing the Bundle Size
+OR
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+Task-Management/server/yarn install
+```
 
-### Making a Progressive Web App
+Run the server
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```
+Task-Management/server/npm start
+```
 
-### Advanced Configuration
+OR
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+Task-Management/server/yarn start
+```
 
-### Deployment
+## Enter Client directory on a new terminal
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
+cd Task-Management/client
+```
 
-### `npm run build` fails to minify
+Install the packages on the client
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+Task-Management/client/npm install
+```
+
+OR
+
+```
+Task-Management/client/yarn install
+
+```
+
+Run the application on the client
+
+```
+Task-Management/client/npm start
+```
+
+OR
+
+```
+Task-Management/client/yarn start
+```
+
+Now you can see that **localhost:3000** automatically opens up on your browser and you can use the app
+
+## Built With
+
+- [MongoDB](https://www.mongodb.com/) - No SQL Database
+- [Express](https://expressjs.com/) - Node.js web application framework
+- [React](https://reactjs.org/) - Frontend/client javascript library
+- [Node](https://nodejs.org/en/) - Backend/server framework
+
+## Project Description
+
+It is a task management application which provides a way to track and monitor tasks as well add new tasks and edit the existing ones. As a user you can enter the tasks and keep a track on your work.
+
+## Authors
+
+- **Meghana Gaddam** - _Task-Management project work_ - [LearnMERN](https://github.com/GaddamMeghana578/Task-Management)
